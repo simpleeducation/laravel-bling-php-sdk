@@ -80,11 +80,11 @@ class Connect
         switch ($method) {
             case "get":
                 return self::$apiClient
-                    ->formatGetParameters($parameters + self::$apiClient->getClient()->getConfig('query'));
+                    ->formatGetParameters($parameters + (array) self::$apiClient->getClient()->getConfig('query'));
                 break;
             default:
                 return self::$apiClient
-                    ->formatRequestParameters($parameters + self::$apiClient->getClient()->getConfig('query'));
+                    ->formatRequestParameters($parameters + (array) self::$apiClient->getClient()->getConfig('query'));
                 break;
         }
     }
