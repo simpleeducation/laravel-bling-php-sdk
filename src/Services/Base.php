@@ -3,6 +3,7 @@
 namespace Bling\Services;
 
 use Bling\Core\Client;
+use Bling\Core\Config;
 use Bling\Core\Connect;
 use Bling\Core\Response;
 
@@ -16,7 +17,10 @@ class Base
 
     public function __construct()
     {
-        $this->connect = Connect::getInstance(Client::getInstance(), new Response());
+        $this->connect = Connect::getInstance(
+            Client::getInstance(Config::configure(config('bling'))),
+            new Response()
+        );
     }
 
     /**
