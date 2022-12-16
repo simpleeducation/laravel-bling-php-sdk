@@ -34,6 +34,6 @@ class XMLBody implements BodyInterface
 
     public function setBody(array $body): string
     {
-        return $this->toXml($body);
+        return $this->toXml($body, $this->root);
     }
 }
