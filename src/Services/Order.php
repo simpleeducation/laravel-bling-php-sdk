@@ -2,7 +2,7 @@
 
 namespace Bling\Services;
 
-use Bling\Helpers\XMLBody;
+use Bling\Helpers\XMLOrderBody;
 use Bling\Helpers\Body;
 
 class Order extends Base
@@ -30,7 +30,7 @@ class Order extends Base
      */
     public function setBody(array $body): void
     {
-        $this->body = ['xml' => (new Body(new XMLBody('pedido')))->setBody($body)];
+        $this->body = ['xml' => (new Body(new XMLOrderBody('pedido')))->setBody($body)];
     }
 
     public function all()
