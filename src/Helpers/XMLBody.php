@@ -34,6 +34,12 @@ class XMLBody implements BodyInterface
 
     public function setBody(array $body): string
     {
-        return $this->toXml($body, $this->root);
+        $xml = $this->toXml($body, $this->root);
+
+        if(config('app.debug')) {
+            dump($xml);
+        }
+
+        return $xml;
     }
 }
