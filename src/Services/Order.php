@@ -2,8 +2,9 @@
 
 namespace Bling\Services;
 
-use Bling\Helpers\XMLOrderBody;
+use Bling\Helpers\XMLBody;
 use Bling\Helpers\Body;
+use Bling\Helpers\XMLOrderBody;
 
 class Order extends Base
 {
@@ -31,6 +32,16 @@ class Order extends Base
     public function setBody(array $body): void
     {
         $this->body = ['xml' => (new Body(new XMLOrderBody('pedido')))->setBody($body)];
+    }
+
+    /**
+     * Método criado para podermos pegar o XML e enviar para o Bling para emitir aNF
+     *
+     * @return string
+     */
+    public function getXml()
+    {
+        return $this->body['xml'];
     }
 
     public function all()
