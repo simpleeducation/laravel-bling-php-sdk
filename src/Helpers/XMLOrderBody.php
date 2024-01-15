@@ -15,7 +15,7 @@ class XMLOrderBody extends XMLBody
         }
 
         foreach ($array as $k => $v) {
-
+            
             if('itens' === $k) {
 
                 foreach($v as $tag => $item) {
@@ -27,6 +27,7 @@ class XMLOrderBody extends XMLBody
                 if (is_array($v)) {
                     $this->toXml($v, $k, $_xml->addChild($k));
                 } else {
+                    $v = htmlentities($v, ENT_XML1, 'UTF-8');
                     $_xml->addChild($k, $v);
                 }
             }
